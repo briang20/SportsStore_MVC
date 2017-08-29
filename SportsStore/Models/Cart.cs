@@ -16,7 +16,7 @@ namespace SportsStore.Models
     {
         public List<CartLine> lineCollection = new List<CartLine>();
 
-        public virtual void AddItem(Product product, int quanity)
+        public virtual void AddItem(Product product, int quantity)
         {
             CartLine line = lineCollection
                 .Where(p => p.Product.ProductID == product.ProductID)
@@ -27,11 +27,11 @@ namespace SportsStore.Models
                 lineCollection.Add(new CartLine
                 {
                     Product = product,
-                    Quantity = quanity
+                    Quantity = quantity
                 });
             }
             else
-                line.Quantity += quanity;
+                line.Quantity += quantity;
         }
 
         public virtual void RemoveLine(Product product) =>
